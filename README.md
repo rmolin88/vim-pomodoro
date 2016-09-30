@@ -1,4 +1,4 @@
-im-pomodoro
+Vim-pomodoro
 ============
 
 vim-pomodoro is a [Vim](http://www.vim.org) plugin for the [Pomodoro time management technique](http://www.pomodorotechnique.com/).
