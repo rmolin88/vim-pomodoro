@@ -20,8 +20,12 @@ let g:pomodoro_loaded = 1
 let g:pomodoro_started = 0
 let g:pomodoro_started_at = -1 
 
-let g:pomodoro_time_work = 25
-let g:pomodoro_time_slack = 5
+if !exists('g:pomodoro_time_work')
+  let g:pomodoro_time_work = 25
+endif
+if !exists('g:pomodoro_time_slack')
+  let g:pomodoro_time_slack = 5
+endif
 
 let s:save_cpo = &cpo
 set cpo&vim
