@@ -31,6 +31,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 command! -nargs=* PomodoroStart call s:PomodoroStart(<q-args>)
+command! PomodoroStatus echo PomodoroStatus()
 nmap <F7> <ESC>:PomodoroStart<CR>
 
 function! PomodoroStatus() 
