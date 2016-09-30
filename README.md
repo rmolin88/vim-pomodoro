@@ -1,9 +1,11 @@
-vim-pomodoro
+im-pomodoro
 ============
 
 vim-pomodoro is a [Vim](http://www.vim.org) plugin for the [Pomodoro time management technique](http://www.pomodorotechnique.com/).
 This is a fork that mitigate some issues with the original plugin.
-It requires [AsyncCommand](https://github.com/vim-scripts/AsyncCommand)
+
+It requires [AsyncCommand](https://github.com/vim-scripts/AsyncCommand).
+
 Future implementations will use Vim 8/Neovim async api.
 
 Usage
