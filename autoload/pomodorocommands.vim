@@ -11,7 +11,7 @@ let g:loaded_autoload_pomodorocommands = 1
 
 function! pomodorocommands#notify()
 	if exists("g:pomodoro_notification_cmd") 
-		call asynccommand#run(g:pomodoro_notification_cmd)
+	  call system(g:pomodoro_notification_cmd)
 	endif
 endfunction
 

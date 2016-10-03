@@ -4,9 +4,9 @@ Vim-pomodoro
 vim-pomodoro is a [Vim](http://www.vim.org) plugin for the [Pomodoro time management technique](http://www.pomodorotechnique.com/).
 This is a fork that mitigate some issues with the original plugin.
 
-It requires [AsyncCommand](https://github.com/vim-scripts/AsyncCommand).
+It requires Vim 8/Neovim.
 
-Future implementations will use Vim 8/Neovim async api.
+This implementation use the new Vim 8/Neovim timers.
 
 Usage
 -----
@@ -72,12 +72,11 @@ the option
 
 Installation
 ------------
-vim-pomodoro requires [AsyncCommand](https://github.com/vim-scripts/AsyncCommand) to be installed.
+vim-pomodoro requires Vim 8/Neovim. 
 The recommended installation method for both plugins is via [Vundle](https://github.com/gmarik/vundle). 
 Add 
 
-	Bundle 'vim-scripts/AsyncCommand'
 	Bundle 'alan-saar/vim-pomodoro'
 
 to your `~/.vimrc` and run `BundleInstall` afterwards. If you don't want to use Vundle, first install 
-AsyncCommand and simply extract the [tarfile](https://github.com/mnick/vim-pomodoro/tarball/master) in your ~/.vim directory afterwards. 
+AsyncCommand and simply extract the [tarfile](https://github.com/alan-saar/vim-pomodoro/tarball/master) in your ~/.vim directory afterwards. 

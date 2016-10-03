@@ -34,7 +34,7 @@ command! -nargs=* PomodoroStart call s:PomodoroStart(<q-args>)
 command! PomodoroStatus echo PomodoroStatus()
 nmap <F7> <ESC>:PomodoroStart<CR>
 
-function! PomodoroStatus() 
+function! PomodoroStatus()
 	if g:pomodoro_started == 0
 		return "Pomodoro inactive"
 	elseif g:pomodoro_started == 1
@@ -51,8 +51,9 @@ function! s:PomodoroStart(name)
 		else 
 			let name = a:name
 		endif
-		call asynccommand#run("sleep " . g:pomodoro_time_work * 60, pomodorohandlers#pause(name)) 
+    let tempTimer = timer_start(g:pomodoro_time_work * 60 * 1000, function('pomodorohandlers#pause', [name]))
 		let g:pomodoro_started_at = localtime()
 		let g:pomodoro_started = 1 
+    echom "Pomodoro Started at: " . strftime('%I:%M:%S %d/%m/%Y')
 	endif
 endfunction
