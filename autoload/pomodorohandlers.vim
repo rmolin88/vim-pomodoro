@@ -25,7 +25,7 @@ function! pomodorohandlers#restart(timer)
 		call pomodorocommands#notify()
  		let choice = confirm(g:pomodoro_time_slack . " minutes break is over... Feeling rested?\nWant to start another pomodoro?", "&Yes\n&No")
 		if choice == 1
-			call StartPomodoro()
+		  exec "PomodoroStart"
     else
       let g:pomodoro_started = 0
 		endif
