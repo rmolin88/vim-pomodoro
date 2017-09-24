@@ -63,10 +63,8 @@ endfunction
 function! pomo#rest(timer) abort
 	let s:pomodoro_started = 2
 	call pomo#notify()
-	" TODO-[RM]-(Sat Sep 23 2017 23:07): Ability to change pomodoro name
-	let choice = confirm("Great, pomodoro " . s:pomo_name . " is finished!\n
-				\ Now, do you want to take a break for " . g:pomodoro_time_slack . " minutes", 
-				\ "&Yes\n&No", 1)
+	let msg = "Great, pomodoro " . s:pomo_name . " is finished!\nNow, do you want to take a break for " . g:pomodoro_time_slack . " minutes?"
+	let choice = confirm(msg, "&Yes\n&No", 1)
 	" TODO-[RM]-(Sat Sep 23 2017 16:28): 
 	" - Log stuff in a not OS dependent way.
 	if exists("g:pomodoro_log_file")
@@ -74,6 +72,7 @@ function! pomo#rest(timer) abort
 					\ ", duration: " . g:pomodoro_time_work . " minutes' >> " . g:pomodoro_log_file
 	endif
 	if choice == 2
+		let s:pomodoro_started = 0
 		return
 	endif
 	let s:pomo_id = timer_start(g:pomodoro_time_slack * 60 * 1000, 'pomo#restart')
@@ -82,10 +81,12 @@ endfunction
 function! pomo#restart(timer) abort
 	let s:pomodoro_started = 0
 	call pomo#notify()
-	let choice = confirm(g:pomodoro_time_slack . " minutes break is over... Feeling rested?\n
-				\ Want to start another ". s:pomo_name . " pomodoro?", "&Yes\n&No\n&Change the name", 1)
+	let msg = g:pomodoro_time_slack . " minutes break is over... Feeling rested?\nWant to start another ". s:pomo_name . " pomodoro?"
+	let choice = confirm(msg, "&Yes\n&No\n&Change the name", 1)
 	if choice == 1
 		exec "PomodoroStart " . s:pomo_name
+	elseif choice == 2
+		let s:pomodoro_started = 0
 	elseif choice == 3
 		let s:pomo_name = input("Please enter new pomodoro name: ", s:pomo_name)
 		exec "PomodoroStart " . s:pomo_name
